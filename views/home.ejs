@@ -1,0 +1,23 @@
+<%- include("partials/header") -%>
+
+<h1>Home</h1>
+<p><%= homeStarting %></p>
+
+<% check.forEach((i)=>{ %>
+     <h1><%= i.Title %></h1>
+     <div class="main">
+      <div class="main-1">
+       <p>
+         <%= i.Body.slice(0, 100) + "..." %>
+         <a href="/posts/<%= i._id%>">Read more</a>
+        </p>
+      </div>
+      <div class="main-2">
+        <form action="/delete" method="post">
+         <button type="submit" class="delete" name="deleteButton" value="<%= i._id %>"></button>
+        </form>
+      </div>
+     </div>
+<% }) %>
+
+<%- include("partials/footer") -%>
